@@ -93,7 +93,7 @@ public class Ball extends Actor
         {
             this.orangeTore = this.orangeTore + 1;
             this.setLocation(539,354);
-            getWorld().addObject(new torexplosion(),1058,354);
+            getWorld().addObject(new torexplosion(),42,354);
             BA.setLocation(100,354);
             OA.setLocation(980,354);
             torexplosound.play();
