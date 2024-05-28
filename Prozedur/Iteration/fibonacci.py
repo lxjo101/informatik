@@ -1,7 +1,11 @@
 k = int(input("Gib die Anzahl der zu berechnenden Fibonacci-Zahlen ein: "))
 
-zahl1 = 1
-print(zahl1)
+if k == 0:
+    print("Keine Fibonacci-Zahlen zu berechnen.")
+
+if k >= 1:
+    zahl1 = 1
+    print(zahl1)
 
 if k >= 2:
     zahl2 = 1
