@@ -8,4 +8,4 @@ n = int(input("Gib die Basis ein: "))
 k = int(input("Gib den Exponenten ein: "))
 
 print(potenz2(k))  
-print(potenzn(n, k))  
+print(potenzn(n, k))

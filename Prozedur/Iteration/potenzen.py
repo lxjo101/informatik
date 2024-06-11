@@ -1,4 +1,4 @@
-n = int(input("Gib die Basis ein: "))
-k = int(input("Gib den Exponenten ein: "))
+n = int(input("Basis: "))
+k = int(input("Exponenten: "))
 
-print (n , "hoch", k ,"ist:",n**k)
+print (n**k)

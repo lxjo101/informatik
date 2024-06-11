@@ -6,6 +6,6 @@ def fibonacci(k):
     else:
         return fibonacci(k-1) + fibonacci(k-2)
 
-k = int(input("Welche Fibonacci-Zahl soll berechnet werden: "))
+k = int(input("Welche Fibonacci Zahl: "))
 result = fibonacci(k)
-print("Die", k, "-te Fibonacci-Zahl ist:", result)
+print("Die", k, "Fibonacci Zahl ist:", result)
