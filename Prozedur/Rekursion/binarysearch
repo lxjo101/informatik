@@ -1,3 +1,4 @@
+print("Made by Levi\n")
 def quickso(a):
     if len(a) < 2:
         return a
@@ -22,7 +23,6 @@ for i in range(count):
         nums[i] = random.randrange(1000)
 nums = quickso(nums)
 
-
 d = random.randrange(1000)
 
 def binsearch(a, d):
@@ -38,11 +38,10 @@ def binsearch(a, d):
         else:
             max = zw - 1
         if min == max:
-            print("Du hast die falsche Zahl " + str(zw) + " gefunden")
+            print("Du hast die falsche Zahl " + str(zw) + " gefunden (" + str(d) + " war gesucht)")
             return zw
         if min > max:
             print("Die gesuchte Zahl " + str(d) + " ist nicht vorhanden")
             return zw
-    return -1
 
 binsearch(nums, d)
