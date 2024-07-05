@@ -48,34 +48,31 @@ while True:
     def binsearch(a, d):
         min = 0
         max = len(a) - 1
-        rz = 0
-        fz = 0
-        nv = 0
         while min <= max:
             zw = (min + max) // 2
             if a[zw] == d:
-                print("\nDu hast die richtige Zahl " + str(d) + " aufgedeckt")
-                rz += 1
+                print(BRIGHT_GREEN + "\nDu hast die richtige Zahl " + str(d) + " aufgedeckt" + RESET)
                 return zw
             elif a[zw] < d:
                 min = zw + 1
             else:
                 max = zw - 1
             if min == max:
-                print("\nDu hast die falsche Zahl " + str(zw) + " gefunden (" + str(d) + " war gesucht)")
-                fz += 1
+                print(RED + "\nDu hast die falsche Zahl " + str(zw) + " gefunden " + BLACK + "(" + str(d) + " war gesucht)" + RESET)
                 return zw
             if min > max:
-                print("\nDie gesuchte Zahl " + str(d) + " ist nicht vorhanden")
-                nv + 1
+                print(RED + "\nDie gesuchte Zahl " + str(d) + " ist nicht vorhanden" + RESET)
                 return zw
             
-    auswahl = int(input("Fortfahren: \n1: Zahl suchen \n2: Ergebnisse anzeigen\n"))
+    auswahl = int(input(WHITE + "Fortfahren: " + WHITE + "\n1: Zahl suchen " + BLACK + "\n2: sortierten Array anzeigen" + BRIGHT_BLUE + "\n"))
+    print(RESET)
     if auswahl == 1:
-        d = int(input("Welche Zahl soll gesucht werden?\n"))
+        d = int(input("\nWelche Zahl soll gesucht werden?\n" + BRIGHT_BLUE))
         binsearch(nums, d)
     elif auswahl == 2:
-        print("\nRichtige Zahl: " + str(rz) + "\nFalsche Zahl: " + str(fz) + "\nNicht vorhandene Zahl: " + str(nv))
+        print("\n" + str(nums) + "\n")
+    else:
+        print(RED + "Invalide Eingabe" + RESET)
         
-    input("\nDrücke Enter um zu fortzufahren...\n")
+    input(BLACK + "\nDrücke Enter um zu fortzufahren...\n")
     print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
