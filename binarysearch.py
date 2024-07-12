@@ -20,49 +20,48 @@ WHITE = '\033[97m'
 
 RESET = '\033[0m' 
 
+def binsearch(a, d):
+    min = 0
+    max = len(a) - 1
+    while min <= max:
+        zw = (min + max) // 2
+        if a[zw] == d: # richtige zahl gefunden 
+            print(BRIGHT_GREEN + "\nDu hast die richtige Zahl " + str(d) + " aufgedeckt" + RESET)
+            return zw
+        elif a[zw] < d:
+            min = zw + 1
+        else:
+            max = zw - 1
+        if min == max: # falsche zahl gefunden
+            print(RED + "\nDu hast die falsche Zahl " + str(zw) + " gefunden " + DARK_GRAY + "(" + str(d) + " war gesucht)" + RESET)
+            return zw
+        if min > max: # zahl nicht gefunden
+            print(RED + "\nDie gesuchte Zahl " + str(d) + " ist nicht vorhanden" + RESET)
+            return zw
+
+def quickso(a):
+    if len(a) < 2:
+        return a
+    else:
+        p = a[0]
+        al = []
+        ar = []
+        for i in range(1, len(a)):
+            if a[i] < p:
+                al.append(a[i])
+            else:
+                ar.append(a[i]) 
+        al = quickso(al)
+        ar = quickso(ar)
+        return al + [p] + ar
+    
 while True:
     print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n" + BLACK + "▀█████████▄   ▄█  ███▄▄▄▄      ▄████████    ▄████████    ▄████████    ▄████████  ▄████████    ▄█    █▄    \n  ███    ███ ███  ███▀▀▀██▄   ███    ███   ███    ███   ███    ███   ███    ███ ███    ███   ███    ███   \n  ███    ███ ███▌ ███   ███   ███    █▀    ███    █▀    ███    ███   ███    ███ ███    █▀    ███    ███   \n" + RED + " ▄███▄▄▄██▀  ███▌ ███   ███   ███         ▄███▄▄▄       ███    ███  ▄███▄▄▄▄██▀ ███         ▄███▄▄▄▄███▄▄ \n▀▀███▀▀▀██▄  ███▌ ███   ███ ▀███████████ ▀▀███▀▀▀     ▀███████████ ▀▀███▀▀▀▀▀   ███        ▀▀███▀▀▀▀███▀  \n  ███    ██▄ ███  ███   ███          ███   ███    █▄    ███    ███ ▀███████████ ███    █▄    ███    ███   \n" + YELLOW + "  ███    ███ ███  ███   ███    ▄█    ███   ███    ███   ███    ███   ███    ███ ███    ███   ███    ███   \n▄█████████▀  █▀    ▀█   █▀   ▄████████▀    ██████████   ███    █▀    ███    ███ ████████▀    ███    █▀    \n                                                                     ███    ███                           \n")
-    def quickso(a):
-        if len(a) < 2:
-            return a
-        else:
-            p = a[0]
-            al = []
-            ar = []
-            for i in range(1, len(a)):
-                if a[i] < p:
-                    al.append(a[i])
-                else:
-                    ar.append(a[i]) 
-            al = quickso(al)
-            ar = quickso(ar)
-            return al + [p] + ar
-
-
     count = 1000
     nums = [None] * count
     for i in range(count):
             nums[i] = random.randrange(1000)
     nums = quickso(nums)
-
-    def binsearch(a, d):
-        min = 0
-        max = len(a) - 1
-        while min <= max:
-            zw = (min + max) // 2
-            if a[zw] == d: # richtige zahl gefunden 
-                print(BRIGHT_GREEN + "\nDu hast die richtige Zahl " + str(d) + " aufgedeckt" + RESET)
-                return zw
-            elif a[zw] < d:
-                min = zw + 1
-            else:
-                max = zw - 1
-            if min == max: # falsche zahl gefunden
-                print(RED + "\nDu hast die falsche Zahl " + str(zw) + " gefunden " + DARK_GRAY + "(" + str(d) + " war gesucht)" + RESET)
-                return zw
-            if min > max: # zahl nicht gefunden
-                print(RED + "\nDie gesuchte Zahl " + str(d) + " ist nicht vorhanden" + RESET)
-                return zw
             
     auswahl = int(input(WHITE + "Fortfahren: " + WHITE + "\n1: Zahl suchen " + DARK_GRAY + "\n2: sortierten Array anzeigen" + BRIGHT_BLUE + "\n"))
     print(RESET)
@@ -82,10 +81,3 @@ while True:
     time.sleep(1) 
     input(DARK_GRAY + "\nDrücke Enter um zu fortzufahren...\n")
     print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
-    
-    
-    
-    
-    
-    
-    
