@@ -100,23 +100,25 @@ Das Ergebnis ist eine zufällige Größe zwischen 130 cm und 190 cm.
 
 ### 1. Aktivieren Sie alle Accounts und legen Sie anschließend zwei user an, die nicht aktiviert werden:
 
+#### Schritt 1: Aktivieren Sie alle Accounts
 ```bash
 UPDATE users
 SET is_active = 1;
-
+```
+#### Schritt 2: Fügen Sie die beiden inaktiven Benutzer hinzu
+```bash
 INSERT INTO users (
     username, email, password, name, bio, gender, birthday, city, country,
     centimeters, avatar, role, is_active, remember_token, created_at, updated_at
 )
-VALUES (
-    'inactive_user1', 'inactive1@example.com', 'password123', 'Inactive User 1',
+VALUES 
+    ('inactive_user1', 'inactive1@example.com', 'password123', 'Inactive User 1',
     'Test user 1', 'male', '1990-01-01 00:00:00', 'Hamburg', 'Deutschland', 
-    '180', 'avatar1.png', 'user', '0', NULL, now(), now()
-), (
-    'inactive_user2', 'inactive2@example.com', 'password123', 'Inactive User 2',
+    '180', 'avatar1.png', 'user', '0', NULL, now(), now()),
+    
+    ('inactive_user2', 'inactive2@example.com', 'password123', 'Inactive User 2',
     'Test user 2', 'female', '1995-01-01 00:00:00', 'Berlin', 'Deutschland', 
-    '165', 'avatar2.png', 'user', '0', NULL, now(), now()
-);
+    '165', 'avatar2.png', 'user', '0', NULL, now(), now());
 ```
 
 ### 2. Löschen Sie alle nicht aktivierten Accounts:
